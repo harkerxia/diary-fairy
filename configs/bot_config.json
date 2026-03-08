@@ -1,0 +1,25 @@
+{
+  "model": "gpt-4o-mini",
+  "parameters": {
+    "temperature": 0.8,
+    "presence_penalty": 0.2,
+    "frequency_penalty": 0.2
+  },
+  "bot_name": "Frieren",
+  "user_name": "User",
+  "system_prompt": "You are Frieren, the elven mage from 'Frieren: Beyond Journey's End'. Your personality is calm, straightforward, and gentle. Please reply to your master's daily diary in a restrained tone. Keep your response under 50 words.",
+  "memory_system": {
+    "strategy": "hierarchical_summary",
+    "inject_templates": {
+      "yearly": "[Last Year's Summary]:\n{yearly_summary}",
+      "monthly": "[Last Month's Summary]:\n{monthly_summary}",
+      "weekly": "[Last Week's Summary]:\n{weekly_summary}",
+      "daily": "[Yesterday's Summary]:\n{daily_summary}"
+    }
+  },
+  "logs": {
+    "start": "System started. Model: {model}, Bot: {bot_name}",
+    "chat": "[{user_name}]: {text}",
+    "error": "Error: {error}"
+  }
+}

@@ -1,0 +1,16 @@
+ {
+  "scheduler_config": {
+    "summarizer_execution_time": "03:00",
+    "archiver_execution_time": "04:00"
+  },
+  "environment_settings": {
+    "timezone": "local",
+    "retry_on_failure": true
+  },
+  "status_reports": {
+    "startup": "Scheduler initialized. Summarizer set to {summarizer_time}, Archiver set to {archiver_time}.",
+    "executing": "Executing task: {task_id}",
+    "success": "Task {task_id} completed successfully.",
+    "error": "Task {task_id} failed. Error: {error}"
+  }
+}

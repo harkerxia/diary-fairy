@@ -1,0 +1,26 @@
+{
+  "git_config": {
+    "local_path": ".",
+    "remote_name": "origin",
+    "branch_name": "main",
+    "author": {
+      "name": "harkerx",
+      "email": "harkerxia@gmail.com"
+    }
+  },
+  "commit_config": {
+    "target_directories": [
+      "archives/"
+    ],
+    "message_template": "chore(archive): sync memory archives for {date}"
+  },
+  "scheduler": {
+    "run_time": "04:00"
+  },
+  "logs": {
+    "start": "Starting Git archive sequence...",
+    "no_changes": "Working tree clean. No new memories to archive.",
+    "success": "Archive successful. Pushed to {remote}/{branch}.",
+    "error": "Archive failed: {error}"
+  }
+}
