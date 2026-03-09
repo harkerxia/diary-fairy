@@ -5,7 +5,7 @@ import subprocess
 import schedule
 from datetime import datetime
 
-with open("configs/scheduler_config.json", "r", encoding="utf-8") as f:
+with open("settings/scheduler_config.json", "r", encoding="utf-8") as f:
     config = json.load(f)
 
 SCHEDULER_CONF = config["scheduler_config"]

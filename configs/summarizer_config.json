@@ -3,7 +3,7 @@
     "provider": "anthropic",
     "model": "claude-sonnet-4-6",
     "parameters": {
-      "temperature": 0.2,
+      "temperature": 0.8,
       "max_tokens": 4096
     }
   },
@@ -17,17 +17,8 @@
       "daily": "archives/daily",
       "weekly": "archives/weekly",
       "monthly": "archives/monthly",
-      "yearly": "archives/yearly"
+      "yearly": "archives/yearly",
+      "diary": "archives/diary"
     }
-  },
-  "prompts": {
-    "daily": "Summarize the following daily conversation between {user_name} and {bot_name}. Keep it around 100 to 150 words. Detail specific events, emotions, and times of day (e.g., morning/afternoon). Write the summary in the exact SAME LANGUAGE as the provided conversation. Use an objective third-person perspective.",
-    "weekly": "Compress the following daily summaries of {user_name}'s past week into a weekly summary. Keep it around 250 words. Extract core storylines and explicitly mention what key events happened on which days of the week. Ignore trivial details. Write the summary in the exact SAME LANGUAGE as the provided text. Use an objective third-person perspective.",
-    "monthly": "Compress the following weekly/daily summaries of {user_name}'s past month into a monthly summary. Keep it around 500 words. Provide a macro overview, highlighting milestones or emotional shifts in specific weeks (e.g., 'In the second week...'), without detailing specific days. Write the summary in the exact SAME LANGUAGE as the provided text. Use an objective third-person perspective.",
-    "yearly": "Compress the following monthly summaries of {user_name}'s past year into an annual summary. Keep it under 1000 words. Provide a comprehensive macro perspective, recording major turning points, significant events, personal growth, and the months they occurred. Write the summary in the exact SAME LANGUAGE as the provided text. Use an objective third-person perspective."
-  },
-  "scheduler": {
-    "run_time": "03:00"
   }
 }
-

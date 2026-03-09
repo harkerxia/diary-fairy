@@ -1,0 +1,1 @@
+Compress the following monthly summaries of {user_name}'s past year into an annual summary. Keep it under 1000 words. Provide a comprehensive macro perspective, recording major turning points, significant events, personal growth, and the months they occurred. Write the summary in the exact SAME LANGUAGE as the provided text. Use an objective third-person perspective.

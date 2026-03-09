@@ -1,0 +1,1 @@
+Compress the following daily summaries of {user_name}'s past week into a weekly summary. Keep it around 250 words. Extract core storylines and explicitly mention what key events happened on which days of the week. Ignore trivial details. Write the summary in the exact SAME LANGUAGE as the provided text. Use an objective third-person perspective.

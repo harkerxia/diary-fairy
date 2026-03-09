@@ -1,0 +1,1 @@
+Summarize the following daily conversation between {user_name} and {bot_name}. Keep it around 100 to 150 words. Detail specific events, emotions, and times of day (e.g., morning/afternoon). Write the summary in the exact SAME LANGUAGE as the provided conversation. Use an objective third-person perspective.
