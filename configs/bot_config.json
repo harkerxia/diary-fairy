@@ -20,5 +20,10 @@
     "start": "System started. Model: {model}, Bot: {bot_name}",
     "chat": "[{user_name}]: {text}",
     "error": "Error: {error}"
-  }
+  },
+  "path": {
+    "diary_archive": "archives/diary",
+    "memory_archive": "archives/memories"
+  },
+  "timezone": "Asia/Shanghai"
 }

@@ -2,6 +2,7 @@ import io
 import os
 import json
 import base64
+import zoneinfo
 from PIL import Image
 from openai import OpenAI
 from dotenv import load_dotenv
@@ -38,13 +39,11 @@ PARAMS = config["parameters"]
 BOT_NAME = config["bot_name"]
 USER_NAME = config["user_name"]
 CHAT_FORMAT = config["chat"]
+PATH = config["path"]
 
 chat_history = {}
 
-DIRS = {
-    "logs": "archives/memory/logs",
-    "memory": "archives/memory"
-}
+DIRS = {k: (v if os.path.isabs(v) else os.path.join(BASE_DIR, v)) for k, v in PATH.items()}
 
 for d in DIRS.values():
     os.makedirs(d, exist_ok=True)
@@ -253,11 +252,27 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
         print(f"[{log_time}] [Error]: {error_msg}")
         await update.message.reply_text("抱歉，我刚才走神了...")
 
+def get_scheduled_time(time_str, tz_str):
+    if tz_str.lower() == "local":
+        run_tz = datetime.now().astimezone().tzinfo
+    else:
+        try:
+            run_tz = zoneinfo.ZoneInfo(tz_str)
+        except zoneinfo.ZoneInfoNotFoundError:
+            run_tz = datetime.now().astimezone().tzinfo
+            
+    h, m = map(int, time_str.split(":"))
+    return time(hour=h, minute=m, second=0, tzinfo=run_tz)
+
+env_config = config["environment_settings"]
+sched_config = config["scheduler_config"]
+tz_setting = config["timezone"]
+
 if __name__ == '__main__':
     app = ApplicationBuilder().token(os.getenv("TELEGRAM_BOT_TOKEN")).build()
     app.add_handler(MessageHandler((filters.TEXT | filters.PHOTO) & (~filters.COMMAND), handle_message))
     local_tz = datetime.now().astimezone().tzinfo
-    target_time = time(hour=3, minute=0, second=0, tzinfo=local_tz) 
+    target_time = time(hour=3, minute=0, second=0, tzinfo=local_tz)
     app.job_queue.run_daily(daily_reset_job, time=target_time)
     print(LOGS["start"].format(model=MODEL, bot_name=BOT_NAME))
     app.run_polling()
